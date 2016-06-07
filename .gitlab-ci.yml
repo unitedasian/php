@@ -8,7 +8,7 @@ variables:
 build:
     stage: build
     script:
-        - docker build -t $IMAGE_NAME .
+        - docker build -t $IMAGE_NAME:$VERSION.$CI_BUILD_ID .
         - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.united-asian.com
         - docker push $IMAGE_NAME:$VERSION.$CI_BUILD_ID
         - docker tag $IMAGE_NAME:$VERSION.$CI_BUILD_ID $IMAGE_NAME:latest
