@@ -22,10 +22,4 @@ RUN apt-get update && apt-get install -y \
         zip \
     && echo "date.timezone="$timezone > /usr/local/etc/php/conf.d/date_timezone.ini \
     && echo "memory_limit="$memory_limit > /usr/local/etc/php/conf.d/memory_limit.ini \
-    && usermod -u 1001 www-data \
-    && chown -R www-data:www-data /var/www \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-ONBUILD COPY . /var/www
-
-WORKDIR /var/www
