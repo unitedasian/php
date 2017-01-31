@@ -1,4 +1,4 @@
-FROM php:7.0
+FROM php:7.1
 
 ARG timezone='Asia/Hong_Kong'
 
